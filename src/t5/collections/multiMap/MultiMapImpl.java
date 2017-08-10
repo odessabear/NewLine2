@@ -7,22 +7,27 @@ import java.util.*;
 /**
  * Created by X501A on 22.07.2017.
  */
-public class MultiMapImpl<K,V> extends HashMap<K, V> implements MultiMap<K,V>{
-    private HashMap<K,List<V>> multiMap = new HashMap<K, List<V>>();
+public class MultiMapImpl<K, V> extends HashMap<K, V> implements MultiMap<K, V> {
+    private HashMap<K, List<V>> multiMap = new HashMap<K, List<V>>();
 
 
     @Override
     public V put(K key, V value) {
-        if (multiMap.containsKey(key)){
+        if (multiMap.containsKey(key)) {
             List<V> values = multiMap.get(key);
             values.add(value);
-            multiMap.put(key,values);
-        }else{
+            multiMap.put(key, values);
+        } else {
             List<V> values = new ArrayList<V>();
             values.add(value);
-            multiMap.put(key,values);
+            multiMap.put(key, values);
         }
         return value;
+    }
+
+    @Override
+    public Set<K> keySet() {
+        return multiMap.keySet();
     }
 
     @Override
@@ -39,17 +44,14 @@ public class MultiMapImpl<K,V> extends HashMap<K, V> implements MultiMap<K,V>{
     }
 
 
-
-
-
     @Override
     public String toString() {
         String string = "";
-        for ( K key : multiMap.keySet()){
+        for (K key : multiMap.keySet()) {
             string = string + key + " = [";
 
-            StringJoiner  j= new StringJoiner(",");
-            for(V value : multiMap.get(key)) {
+            StringJoiner j = new StringJoiner(",");
+            for (V value : multiMap.get(key)) {
                 j.add(value.toString());
             }
 
@@ -63,19 +65,18 @@ public class MultiMapImpl<K,V> extends HashMap<K, V> implements MultiMap<K,V>{
         if (multiMap.containsKey(key)) {
             int lastIndex = multiMap.get(key).size() - 1;
             return multiMap.get(key).get(lastIndex);
-        }else {
+        } else {
             return null;
         }
     }
 
 
-
     public V remove(Object key) {
         V delete = this.get(key);
         List<V> values = multiMap.get(key);
-        if (values != null){
+        if (values != null) {
             values.clear();
-            multiMap.put((K)key,values);
+            multiMap.put((K) key, values);
         }
         return delete;
     }
@@ -88,8 +89,8 @@ public class MultiMapImpl<K,V> extends HashMap<K, V> implements MultiMap<K,V>{
     @Override
     public Collection<V> values() {
         ArrayList<V> values = new ArrayList<V>();
-        for (K key:multiMap.keySet()){
-            for (V value:multiMap.get(key)){
+        for (K key : multiMap.keySet()) {
+            for (V value : multiMap.get(key)) {
                 values.add(value);
             }
         }
@@ -103,13 +104,13 @@ public class MultiMapImpl<K,V> extends HashMap<K, V> implements MultiMap<K,V>{
 
     @Override
     public boolean replace(K key, V oldValue, V newValue) {
-        if(multiMap.containsKey(key)){
-            List<V> values =  multiMap.get(key);
-            for (int i = 0;i < values.size();i ++){
-                if (values.get(i).equals(oldValue)){
-                    values.add(i,newValue);
+        if (multiMap.containsKey(key)) {
+            List<V> values = multiMap.get(key);
+            for (int i = 0; i < values.size(); i++) {
+                if (values.get(i).equals(oldValue)) {
+                    values.add(i, newValue);
                     values.remove(oldValue);
-                    multiMap.put(key,values);
+                    multiMap.put(key, values);
                     return true;
                 }
             }
@@ -119,11 +120,11 @@ public class MultiMapImpl<K,V> extends HashMap<K, V> implements MultiMap<K,V>{
 
     @Override
     public V replace(K key, V value) {
-        if (multiMap.containsKey(key)){
+        if (multiMap.containsKey(key)) {
             List<V> values = multiMap.get(key);
             values.clear();
             values.add(value);
-            multiMap.put(key,values);
+            multiMap.put(key, values);
         }
         return value;
     }

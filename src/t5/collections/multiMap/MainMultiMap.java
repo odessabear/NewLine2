@@ -5,19 +5,19 @@ package t5.collections.multiMap;
  */
 public class MainMultiMap {
     public static void main(String[] args) {
-        MultiMapImpl<String,Integer> multiMap = new MultiMapImpl<>();
+        MultiMapImpl<MapKeyImpl,Integer> multiMap = new MultiMapImpl<>();
 
-        multiMap.put("Banana",3);
-        multiMap.put("Cherry",5);
-        multiMap.put("Apple",4);
-        multiMap.put("Banana",8);
-        multiMap.put("Banana",6);
-        multiMap.put("Banana",9);
-        multiMap.put("Cherry",3);
+        multiMap.put(new MapKeyImpl("Banana"),3);
+        multiMap.put(new MapKeyImpl("Cherry"),5);
+        multiMap.put(new MapKeyImpl("Apple"),4);
+        multiMap.put(new MapKeyImpl("Banana"),8);
+        multiMap.put(new MapKeyImpl("Banana"),6);
+        multiMap.put(new MapKeyImpl("Banana"),9);
+        multiMap.put(new MapKeyImpl("Cherry"),3);
 
         System.out.println(multiMap.toString());
-        System.out.println(multiMap.countValues("Apple"));
-        System.out.println(multiMap.get("Banana"));
+        System.out.println(multiMap.countValues(new MapKeyImpl("Apple")));
+        System.out.println(multiMap.get(new MapKeyImpl("Banana")));
 //        multiMap.remove("Banana");
         System.out.println(multiMap);
 
@@ -27,10 +27,10 @@ public class MainMultiMap {
 
         System.out.println(multiMap.isEmpty());
 
-        System.out.println(multiMap.replace("Banana",3,6));
+        System.out.println(multiMap.replace(new MapKeyImpl("Banana"),3,6));
         System.out.println(multiMap);
 
-        multiMap.replace("Banana",15);
+        multiMap.replace(new MapKeyImpl("Banana"),15);
 
         System.out.println(multiMap);
 
