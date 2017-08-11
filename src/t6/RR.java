@@ -8,4 +8,9 @@ public class RR implements FileCopyUtils{
     public void copyFile(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException {
 
     }
+
+    @Override
+    public void copyFileUsingJava8(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException {
+
+    }
 }
