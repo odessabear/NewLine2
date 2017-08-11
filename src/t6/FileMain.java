@@ -27,8 +27,8 @@ public class FileMain {
 
         FileCopyUtilsImpl fileCopyUtils = new FileCopyUtilsImpl();
         try {
-            fileCopyUtils.copyFile("D:\\Development\\file.txt", "D:\\Development\\file_copy.txt");
-            fileCopyUtils.copyFileUsingJava8("D:\\Development\\file8.txt", "D:\\Development\\file_copy8.txt");
+            fileCopyUtils.copyFileOverwrite("D:\\Development\\file.txt", "D:\\Development\\file_copy.txt");
+            fileCopyUtils.copyFileUsingJava8Overwrite("D:\\Development\\file8.txt", "D:\\Development\\file_copy8.txt");
         } catch (IOtheme.FileCopyFailedException | IOException e) {
             System.err.println("could not copy file");
             e.printStackTrace();
