@@ -17,6 +17,16 @@ public class RR implements FileCopyUtils{
     }
 
     @Override
+    public void copyFileBuffer(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException {
+
+    }
+
+    @Override
+    public void copyFileChannel(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException {
+
+    }
+
+    @Override
     public void copyFileUsingJava8(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException {
 
     }

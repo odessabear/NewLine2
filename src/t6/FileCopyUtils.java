@@ -22,6 +22,10 @@ public interface FileCopyUtils {
 
 	void copyFileOverwrite(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException;
 
+    void copyFileBuffer(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException;
+
+    void copyFileChannel(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException;
+
 	/**
 	 * Функция копирования файла source в файл destination используя средства Java 8. Source и destination - это пути к файлам
 	 *
