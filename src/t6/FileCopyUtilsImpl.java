@@ -12,13 +12,14 @@ public class FileCopyUtilsImpl implements FileCopyUtils {
     @Override
     public void copyFile(String source, String destination) throws IOtheme.FileCopyFailedException {
         try {
-            FileInputStream fread = new FileInputStream(new File(source));
-            FileOutputStream fwrite = new FileOutputStream(new File(destination));
+            FileReader fread = new FileReader(new File(source));
+            FileWriter fwrite = new FileWriter(new File(destination));
             int b = 0;
             do {
                 fwrite.write(fread.read());
             } while  ((b = fread.read()) != -1);
             fread.close();
+            fwrite.flush();
             fwrite.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -31,13 +32,14 @@ public class FileCopyUtilsImpl implements FileCopyUtils {
             File dst = new File(destination);
             dst.delete();
             dst.createNewFile();
-            FileInputStream fread = new FileInputStream(new File(source));
-            FileOutputStream fwrite = new FileOutputStream(dst);
+            FileReader fread = new FileReader(new File(source));
+            FileWriter fwrite = new FileWriter(new File(String.valueOf(dst)));
             int b = 0;
             do {
                 fwrite.write(fread.read());
             } while  ((b = fread.read()) != -1);
             fread.close();
+            fwrite.flush();
             fwrite.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,8 +52,8 @@ public class FileCopyUtilsImpl implements FileCopyUtils {
             File dst = new File(destination);
             dst.delete();
             dst.createNewFile();
-            BufferedInputStream fread = new BufferedInputStream(new FileInputStream(source));
-            BufferedOutputStream fwrite = new BufferedOutputStream( new FileOutputStream(dst));
+            FileReader fread = new FileReader(new File(source));
+            FileWriter fwrite = new FileWriter(new File(String.valueOf(dst)));;
             int b = 0;
             do {
                 fwrite.write(fread.read());
@@ -70,6 +72,7 @@ public class FileCopyUtilsImpl implements FileCopyUtils {
         try {
             FileChannel fread = new FileInputStream(source).getChannel();
             FileChannel Fwrite = new FileOutputStream(destination).getChannel();
+
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
