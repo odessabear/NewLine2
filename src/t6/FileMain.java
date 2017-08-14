@@ -35,8 +35,13 @@ public class FileMain {
             e.printStackTrace();
         }
 
-        for (int i = 0; i < list.length; i++) {
-            System.out.println(list[i].getAbsolutePath());
-        }
+      //  for (int i = 0; i < list.length; i++) {
+        //    System.out.println(list[i].getAbsolutePath());
+       // }
+        path = new File(".");
+        list = path.listFiles();
+        for(int i = 0; i < list.length; i++)
+            System.out.println(list[i].getName());
+
     }
 }

@@ -83,7 +83,7 @@ public class FileCopyUtilsImpl implements FileCopyUtils {
     public void copyFileChannel(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException {
         try {
             FileChannel fread = new FileInputStream(source).getChannel();
-            FileChannel Fwrite = new FileOutputStream(destination).getChannel();
+            FileChannel write = new FileOutputStream(destination).getChannel();
 
 
         } catch (FileNotFoundException e) {
