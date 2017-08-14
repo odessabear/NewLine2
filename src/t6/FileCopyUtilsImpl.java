@@ -14,10 +14,14 @@ public class FileCopyUtilsImpl implements FileCopyUtils {
         try {
             FileReader fread = new FileReader(new File(source));
             FileWriter fwrite = new FileWriter(new File(destination));
-            int b = 0;
-            do {
-                fwrite.write(fread.read());
-            } while  ((b = fread.read()) != -1);
+            int c = 0;
+            while (true) {
+                c = fread.read();
+                if (c != -1)
+                    fwrite.write(c);
+                else
+                    break;
+            }
             fread.close();
             fwrite.flush();
             fwrite.close();
@@ -34,10 +38,14 @@ public class FileCopyUtilsImpl implements FileCopyUtils {
             dst.createNewFile();
             FileReader fread = new FileReader(new File(source));
             FileWriter fwrite = new FileWriter(new File(String.valueOf(dst)));
-            int b = 0;
-            do {
-                fwrite.write(fread.read());
-            } while  ((b = fread.read()) != -1);
+            int c = 0;
+            while (true) {
+                c = fread.read();
+                if (c != -1)
+                    fwrite.write(c);
+                else
+                    break;
+            }
             fread.close();
             fwrite.flush();
             fwrite.close();
@@ -54,10 +62,14 @@ public class FileCopyUtilsImpl implements FileCopyUtils {
             dst.createNewFile();
             FileReader fread = new FileReader(new File(source));
             FileWriter fwrite = new FileWriter(new File(String.valueOf(dst)));;
-            int b = 0;
-            do {
-                fwrite.write(fread.read());
-            } while  ((b = fread.read()) != -1);
+            int c = 0;
+            while (true) {
+                c = fread.read();
+                if (c != -1)
+                    fwrite.write(c);
+                else
+                    break;
+            }
             fread.close();
             fwrite.flush();
             fwrite.close();

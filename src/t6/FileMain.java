@@ -15,10 +15,10 @@ public class FileMain {
         File[] list = path.listFiles(new FileFilter() {
             @Override
             public boolean accept(File pathname) {
-                if(pathname.isDirectory()){
+                if (pathname.isDirectory()) {
                     return true;
                 }
-                if (pathname.getName().endsWith(".jpg") ||pathname.getName().endsWith(".JPG")|| pathname.getName().endsWith(".png") ){
+                if (pathname.getName().endsWith(".jpg") || pathname.getName().endsWith(".JPG") || pathname.getName().endsWith(".png")) {
                     return true;
                 }
                 return false;
@@ -27,9 +27,9 @@ public class FileMain {
 
         FileCopyUtilsImpl fileCopyUtils = new FileCopyUtilsImpl();
         try {
-           // fileCopyUtils.copyFileBuffer("D:\\Development\\buff.txt","D:\\Development\\buff_copy.txt");
-            fileCopyUtils.copyFile("D:\\Development\\file.txt", "D:\\Development\\file_copy.txt");
-          //  fileCopyUtils.copyFileUsingJava8Overwrite("D:\\Development\\file8.txt", "D:\\Development\\file_copy8.txt");
+            fileCopyUtils.copyFileBuffer("D:\\Development\\buff.txt", "D:\\Development\\buff_copy.txt");
+            fileCopyUtils.copyFileOverwrite("D:\\Development\\file.txt", "D:\\Development\\file_copy.txt");
+            fileCopyUtils.copyFileUsingJava8Overwrite("D:\\Development\\file8.txt", "D:\\Development\\file_copy8.txt");
         } catch (Exception e) {
             System.err.println("could not copy file");
             e.printStackTrace();
