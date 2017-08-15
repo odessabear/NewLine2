@@ -24,7 +24,7 @@ public interface FileCopyUtils {
 
     void copyFileBuffer(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException;
 
-    void copyFileChannel(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException;
+    void copyFileChannel(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException, IOException;
 
 	/**
 	 * Функция копирования файла source в файл destination используя средства Java 8. Source и destination - это пути к файлам

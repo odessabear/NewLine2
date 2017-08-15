@@ -2,6 +2,7 @@ package t6;
 
 import java.io.*;
 
+import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -80,13 +81,26 @@ public class FileCopyUtilsImpl implements FileCopyUtils {
     }
 
     @Override
-    public void copyFileChannel(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException {
+    public void copyFileChannel(String source, String destination) throws IOtheme.FileCopyFailedException, FileAlreadyExistsException, IOException {
         try {
-            FileChannel fread = new FileInputStream(source).getChannel();
-            FileChannel write = new FileOutputStream(destination).getChannel();
+            try {
+                FileChannel fread = new FileInputStream(source).getChannel();
+                FileChannel fwrite = new FileOutputStream(destination).getChannel();
+                ByteBuffer buffer = ByteBuffer.allocate(1024);
+                while (fread.read(buffer) != -1) {
+                    buffer.flip(); // Подготовим для записи
+                    fwrite.write(buffer);
+                    buffer.clear(); // Подготовим для чтения
+                }
+                } catch(FileNotFoundException e) {
+                        System.err.println("could not copy file");
+            }
 
 
-        } catch (FileNotFoundException e) {
+
+
+
+            } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
