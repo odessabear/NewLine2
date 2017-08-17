@@ -2,7 +2,6 @@ package t6;
 
 import java.io.File;
 import java.io.FileFilter;
-import java.io.IOException;
 
 /**
  * Created by X501A on 10.08.2017.
@@ -25,12 +24,11 @@ public class FileMain {
             }
         });
 
-        FileCopyUtilsImpl fileCopyUtils = new FileCopyUtilsImpl();
+
         try {
 
-            fileCopyUtils.copyFileChannel("D:\\Development\\buff.txt", "D:\\Development\\buff_copy.txt");
-          //  fileCopyUtils.copyFileOverwrite("D:\\Development\\file.txt", "D:\\Development\\file_copy.txt");
-           // fileCopyUtils.copyFileUsingJava8Overwrite("D:\\Development\\file8.txt", "D:\\Development\\file_copy8.txt");
+           FileCopyUtils copy = new FileCopy();
+            copy.copyFile("D:\\Development\\file.txt", "D:\\Development\\file_copy.txt");
         } catch (Exception e) {
             System.err.println("could not copy file");
             e.printStackTrace();
@@ -43,6 +41,8 @@ public class FileMain {
         list = path.listFiles();
         for(int i = 0; i < list.length; i++)
             System.out.println(list[i].getName());
+
+
 
     }
 }

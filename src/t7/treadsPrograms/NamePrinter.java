@@ -1,4 +1,4 @@
-package t7.treadsPrograns;
+package t7.treadsPrograms;
 
 import java.io.PrintStream;
 

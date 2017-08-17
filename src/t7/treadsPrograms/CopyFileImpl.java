@@ -1,7 +1,6 @@
-package t7.treadsPrograns;
+package t7.treadsPrograms;
 
 import t6.FileCopyUtils;
-import t6.IOtheme;
 
 /**
  * Created by X501A on 15.08.2017.

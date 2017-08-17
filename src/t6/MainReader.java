@@ -28,7 +28,7 @@ public class MainReader {
                     break;
                 out.println(s);
             }
-            ;
+
         } catch (IOException ex) {
             // Обработать исключение
         } finally {
