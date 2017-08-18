@@ -6,6 +6,7 @@ import t6.FileCopyUtils;
  * Created by X501A on 15.08.2017.
  */
 public class CopyFileImpl extends AbstractTask implements CopyFileTask {
+
     private String pathFrom;
     private String pathTo;
     private FileCopyUtils copyUtils;

@@ -8,15 +8,11 @@ public abstract class AbstractTask implements Task {
 
     @Override
     public int getTryCount() {
-
         return tryCount;
     }
 
     @Override
     public void incTryCount() {
         tryCount++;
-
     }
-
-
 }
