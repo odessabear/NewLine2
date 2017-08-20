@@ -7,7 +7,6 @@ package t7.treadsPrograms;
  * @version 1.0
  */
 public class TaskExecutionFailedException extends Exception {
-	private static final long serialVersionUID = -3853034940823091780L;
 
 	public TaskExecutionFailedException(String message) {
 		super(message);

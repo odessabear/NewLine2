@@ -1,4 +1,8 @@
-package t7.treadsPrograms;
+package t7.addException;
+
+import t7.treadsPrograms.AbstractTask;
+import t7.treadsPrograms.FindFilesTask;
+import t7.treadsPrograms.TaskExecutionFailedException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,7 +12,7 @@ import java.util.Set;
 /**
  * Created by X501A on 18.08.2017.
  */
-public abstract class FindFileImpl extends AbstractTask implements FindFilesTask {
+public abstract class FindFileTaskImpl extends AbstractTask implements FindFilesTask {
 
     private PrintStream out;
     private String directory;
@@ -33,15 +37,15 @@ public abstract class FindFileImpl extends AbstractTask implements FindFilesTask
     public void execute() throws TaskExecutionFailedException {
 
         if (this.directory == null) {
-            throw new IllegalArgumentException("i don't know WHERE to search");
+            throw new TaskExecutionFailedException("i don't know WHERE to search");
         }
 
         if (this.searchString == null) {
-            throw new IllegalArgumentException("i don't know WHAT to search");
+            throw new TaskExecutionFailedException("i don't know WHAT to search");
         }
 
         if (this.out == null) {
-            throw new IllegalArgumentException("i don't know WHERE TO PRINT THE OUTPUT");
+            throw new TaskExecutionFailedException("i don't know WHERE TO PRINT THE OUTPUT");
         }
 
         Set<String> foundEntries = find(searchString, directory);
@@ -53,8 +57,6 @@ public abstract class FindFileImpl extends AbstractTask implements FindFilesTask
         } else {
             this.out.println("nothing was found");
         }
-
-        this.out.write(Integer.parseInt("something was found"));
     }
 
     private Set<String> find(String searchString, String directory) {

@@ -11,6 +11,13 @@ public class Main {
         } catch (Exception e) {
 
         }
+
+        Student st2 = new Student();
+        try {
+            st2.setAge(-3);
+        } catch (Exception e) {
+
+        }
         System.out.println("uiuiu");
     }
 }

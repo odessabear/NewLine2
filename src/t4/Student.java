@@ -6,11 +6,11 @@ package t4;
 public class Student {
     private int age;
 
-    public void setAge(int age) throws Exception {
+    public void setAge(int agee) throws Exception {
         if (age >150 || age < 0){
             throw new Exception("age must notbe age >150 || age < 0");
         }
-        this.age = age;
+        this.age = agee;
     }
 
 }
