@@ -17,6 +17,7 @@ public class HashSetMain {
         hashSet.add(21);
         for (Iterator<Integer> iter = hashSet.iterator();iter.hasNext();){
             System.out.println(iter.next());
+            System.out.println("print ok");
         }
     }
 }
