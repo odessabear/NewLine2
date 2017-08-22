@@ -20,8 +20,9 @@ public class TaskExecutorImpl extends Thread implements TaskExecutor {
     @Override
     public void run() {
         while (true){
-            Task task = storage.get();
+            Task task = storage.get(); ;
             if (task == null){
+                System.out.println("WTF ?");
                 return;
             }else {
                 try {
