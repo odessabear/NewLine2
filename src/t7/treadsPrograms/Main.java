@@ -18,14 +18,14 @@ public class Main {
             task1.setPrintStream(System.out);
 
             FindFilesTaskImpl task2 = new FindFilesTaskImpl();
-            task1.setDirectory("D:\\Development");
-            task1.setFileNameSearchString("17");
-            task1.setPrintStream(System.out);
+            task2.setDirectory("D:\\Development");
+            task2.setFileNameSearchString("17");
+            task2.setPrintStream(System.out);
 
             FindFilesTaskImpl task3 = new FindFilesTaskImpl();
-            task1.setDirectory("D:\\Development");
-            task1.setFileNameSearchString("file8");
-            task1.setPrintStream(System.out);
+            task3.setDirectory("D:\\Development");
+            task3.setFileNameSearchString("file8");
+            task3.setPrintStream(System.out);
 
             CopyFileTaskImpl task4 = new CopyFileTaskImpl("D:\\Development\\Koala.jpg","D:\\Development\\test.jpg",new BufferCopyFile());
 
@@ -41,8 +41,10 @@ public class Main {
             storage.add(task2);
             storage.add(task3);
 
-            Thread thread = new TaskExecutorImpl();
-            thread.start();
+
+            TaskExecutorImpl thread = new TaskExecutorImpl();
+            thread.setStorage(storage);
+            thread.run();
 
         } catch (Exception e) {
             e.printStackTrace();

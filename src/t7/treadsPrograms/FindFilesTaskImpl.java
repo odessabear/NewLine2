@@ -20,7 +20,7 @@ public class FindFilesTaskImpl extends AbstractTask implements FindFilesTask {
         try {
             searchFiles(result,directory,searchString);
         } catch (Exception e) {
-            throw new TaskExecutionFailedException("Task can't be execute");
+            throw new TaskExecutionFailedException("Task can't be execute", e);
         }
 
         if (result.isEmpty()) {
@@ -36,6 +36,9 @@ public class FindFilesTaskImpl extends AbstractTask implements FindFilesTask {
 
 
     private void searchFiles(Set<String> result,String path,String searchString){
+        if (path == null) {
+            return;
+        }
         File currentDir = new File(path);
        File [] files = currentDir.listFiles();
         for (File file:files){
@@ -79,6 +82,5 @@ public class FindFilesTaskImpl extends AbstractTask implements FindFilesTask {
     @Override
     public void setPrintStream(PrintStream out) {
         this.out = out;
-
     }
 }
