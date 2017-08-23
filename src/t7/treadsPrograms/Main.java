@@ -28,7 +28,7 @@ public class Main {
 
             CopyFileTaskImpl task4 = new CopyFileTaskImpl("D:\\Видео\\2014-05-03-767.mp4","D:\\Видео\\test.mp4",new BufferCopyFile());
 
-            CopyFileTaskImpl task5 = new CopyFileTaskImpl("D:\\Видео\\DSCN0247.AVI","D:\\Видео\\test1.AVI",new FileCopyChannel());
+            CopyFileTaskImpl task5 = new CopyFileTaskImpl("D:\\Видеоoo\\DSCN0247.AVI","D:\\Видео\\test1.AVI",new FileCopyChannel());
 
             CopyFileTaskImpl task6 = new CopyFileTaskImpl("D:\\Видео\\IMGP3583.AVI","D:\\Видео\\test2.AVI",new BufferCopyFile());
 
@@ -39,19 +39,6 @@ public class Main {
             storage.add(task5);
             storage.add(task2);
             storage.add(task3);
-
-            TaskExecutorImpl thread1 = new TaskExecutorImpl();
-            TaskExecutorImpl thread2 = new TaskExecutorImpl();
-            TaskExecutorImpl thread3 = new TaskExecutorImpl();
-            thread1.setStorage(storage);
-            thread1.start();
-
-            thread2.setStorage(storage);
-            thread2.start();
-            thread3.setStorage(storage);
-            thread3.start();
-
-
 
         } catch (Exception e) {
             e.printStackTrace();
