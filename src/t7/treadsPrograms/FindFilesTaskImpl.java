@@ -16,6 +16,12 @@ public class FindFilesTaskImpl extends AbstractTask implements FindFilesTask {
 
     @Override
     public void execute() throws TaskExecutionFailedException {
+        NamePrinter impl = new NamePrinterImpl();
+        impl.setCount(2);
+        impl.setInterval(1000);
+        impl.setPrintName("find files printer");
+        impl.setStream(this.out);
+
         Set<String> result = new HashSet<>();
         try {
             searchFiles(result,directory,searchString);
@@ -24,14 +30,14 @@ public class FindFilesTaskImpl extends AbstractTask implements FindFilesTask {
         }
 
         if (result.isEmpty()) {
+            impl.print();
             out.println("can't find file with this searchString ");
         } else {
             for (String path : result) {
+                impl.print();
                 out.println(path);
             }
         }
-
-
     }
 
 
