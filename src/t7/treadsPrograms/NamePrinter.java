@@ -42,4 +42,6 @@ public interface NamePrinter {
 	 * @throws IllegalArgumentException если count <= 0
 	 */
 	void setCount(int count) throws IllegalArgumentException;
+
+	void print();
 }

@@ -12,7 +12,7 @@ public class TasksStorageImpl implements TasksStorage {
 
     @Override
     public synchronized void add(Task task) throws NullPointerException {
-        if (task == null) {
+        if (task == null){
             throw new NullPointerException("Task can't be null");
         }
         array.add(task);
@@ -21,22 +21,16 @@ public class TasksStorageImpl implements TasksStorage {
 
     @Override
     public synchronized Task get() {
-        //Task elem = null;
+        Task elem = null;
         if (array.isEmpty()) {
             return null;
         } else {
-            return array.removeFirst();
+            for (Iterator iter = array.iterator(); iter.hasNext();){
+                elem = (Task)iter.next();
+            }
+                return elem;
         }
-
-           // for (Iterator iterator = array.iterator(); iterator.hasNext(); ) {
-            //    elem = (Task) iterator.next();
-
-           // }
-
-
-       // return elem;
     }
-
 
     @Override
     public synchronized int count() {

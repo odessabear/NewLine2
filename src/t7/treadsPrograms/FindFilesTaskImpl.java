@@ -16,26 +16,35 @@ public class FindFilesTaskImpl extends AbstractTask implements FindFilesTask {
 
     @Override
     public void execute() throws TaskExecutionFailedException {
+        NamePrinter impl = new NamePrinterImpl();
+        impl.setCount(2);
+        impl.setInterval(1000);
+        impl.setPrintName("find files printer");
+        impl.setStream(this.out);
+
         Set<String> result = new HashSet<>();
         try {
             searchFiles(result,directory,searchString);
         } catch (Exception e) {
-            throw new TaskExecutionFailedException("Task can't be execute");
+            throw new TaskExecutionFailedException("Task can't be execute", e);
         }
 
         if (result.isEmpty()) {
+            impl.print();
             out.println("can't find file with this searchString ");
         } else {
             for (String path : result) {
+                impl.print();
                 out.println(path);
             }
         }
-
-
     }
 
 
     private void searchFiles(Set<String> result,String path,String searchString){
+        if (path == null) {
+            return;
+        }
         File currentDir = new File(path);
        File [] files = currentDir.listFiles();
         for (File file:files){
@@ -79,6 +88,5 @@ public class FindFilesTaskImpl extends AbstractTask implements FindFilesTask {
     @Override
     public void setPrintStream(PrintStream out) {
         this.out = out;
-
     }
 }
