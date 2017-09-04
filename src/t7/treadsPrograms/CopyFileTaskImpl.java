@@ -33,4 +33,9 @@ public class CopyFileTaskImpl extends AbstractTask implements CopyFileTask {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "Copy task: from " + pathFrom +", to "+ pathTo;
+    }
 }

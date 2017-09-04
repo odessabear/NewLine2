@@ -25,10 +25,7 @@ public class TasksStorageImpl implements TasksStorage {
         if (array.isEmpty()) {
             return null;
         } else {
-            for (Iterator iter = array.iterator(); iter.hasNext();){
-                elem = (Task)iter.next();
-            }
-                return elem;
+                return array.removeFirst();
         }
     }
 

@@ -13,7 +13,6 @@ public abstract class AbstractTask implements Task {
 
     @Override
     public void incTryCount() {
-        System.out.println("increasing retry count");
         tryCount++;
     }
 }

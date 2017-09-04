@@ -1,6 +1,7 @@
 package t5.sortedSet;
 
-import org.jetbrains.annotations.NotNull;
+
+import com.sun.istack.internal.NotNull;
 
 /**
  * Created by X501A on 15.07.2017.
